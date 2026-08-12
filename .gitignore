@@ -1,0 +1,45 @@
+# --- caches and junk ---
+__pycache__/
+*.pyc
+nohup.out
+_to_delete/
+putty*.log
+
+# --- data: corpora and audio (hundreds of MB, reproducible from SEED) ---
+corpus_*/
+*.wav
+*.npz
+
+# --- weights and graphs: reproducible by running, no place in git ---
+*.pt
+checkpoints/
+runs/
+models/**/*.onnx
+models/t0/ws/
+models/t0/out/
+
+# --- firmware build artefacts (D-21: binaries were shadowing make test) ---
+fw/build/
+
+# dsp golden references — an EXCEPTION to the *.npz ban: they are the source
+# of truth for the §2.4 method, and fw/test/vectors is generated from them
+# (see tools/export_fw_assets)
+!dsp/golden/*.npz
+
+# teacher_search: 65 MB of checkpoints and audio are ignored, while *.md and
+# *.json are TRACKED DELIBERATELY (28 kB) — these are the exam results, cited
+# by D-17 and by the canonical eval_chain. The declaration was here from the
+# start, but the files themselves were only added on 7 Aug.
+teacher_search/*
+!teacher_search/*/
+teacher_search/*/*
+!teacher_search/*/*.json
+!teacher_search/*/*.md
+
+# t1 generation output (network.c and the graphs) — reproducible, like t0/out
+models/t1/
+
+# TRACKED DELIBERATELY: fw/n6_fir_coeffs.h and fw/n6_npu_scales.h are
+# generated, but the build needs them.
+st_ai_ws/
+run.log

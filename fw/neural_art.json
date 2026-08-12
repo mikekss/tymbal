@@ -1,0 +1,39 @@
+// Neural-ART profiles for N6 Neural Instrument (T0). ASCII only (cp1252 reader).
+// n6-audio:        full DK-style map (template stm32n6.mpool), incl. hyperRAM.
+// n6-nucleo:       conservative NUCLEO-N657X0-Q map: AXISRAM pools + octoFlash.
+// n6-app-safe:      like full-onchip, but cpuRAM1/2 trimmed so they do NOT
+//                   overlap FSBL memory. Since 03.08 also --enable-epoch-controller:
+//                   without it the report said "34 HW epochs in 0 EC blobs", i.e. the
+//                   epoch controller was idle and every epoch cost a CPU round-trip.
+//                   overlap FSBL N6_m1 memory (.ram2 / ROM / RAM). Use this
+//                   for M2; t_call must be re-measured (2866 us was old map).
+// n6-nucleo-onchip: AXISRAM pools only - forces weights on-chip (TZ sec.2 wants
+//                   resident weights; report shows whether it fits).
+{
+    "Profiles": {
+        "n6-audio": {
+            "memory_pool": "./stm32n6.mpool",
+            "options" : "--optimization 3 --all-buffers-info --cache-maintenance --Oauto-sched --native-float --enable-virtual-mem-pools --Omax-ca-pipe 4 --Ocache-opt --Os"
+        },
+        "n6-nucleo": {
+            "memory_pool": "./stm32n6_nucleo.mpool",
+            "options" : "--optimization 3 --all-buffers-info --cache-maintenance --Oauto-sched --native-float --enable-virtual-mem-pools --Omax-ca-pipe 4 --Ocache-opt --Os"
+        },
+        "n6-nucleo-full": {
+            "memory_pool": "./stm32n6_nucleo_full.mpool",
+            "options" : "--optimization 3 --all-buffers-info --cache-maintenance --Oauto-sched --native-float --enable-virtual-mem-pools --Omax-ca-pipe 4 --Ocache-opt --Os"
+        },
+        "n6-app-safe": {
+            "memory_pool": "./stm32n6_nucleo_app_safe.mpool",
+            "options" : "--optimization 3 --all-buffers-info --cache-maintenance --Oauto-sched --native-float --enable-virtual-mem-pools --Omax-ca-pipe 4 --Ocache-opt --Os --enable-epoch-controller"
+        },
+        "n6-nucleo-full-onchip": {
+            "memory_pool": "./stm32n6_nucleo_full_onchip.mpool",
+            "options" : "--optimization 3 --all-buffers-info --cache-maintenance --Oauto-sched --native-float --enable-virtual-mem-pools --Omax-ca-pipe 4 --Ocache-opt --Os"
+        },
+        "n6-nucleo-onchip": {
+            "memory_pool": "./stm32n6_nucleo_onchip.mpool",
+            "options" : "--optimization 3 --all-buffers-info --cache-maintenance --Oauto-sched --native-float --enable-virtual-mem-pools --Omax-ca-pipe 4 --Ocache-opt --Os"
+        }
+    }
+}

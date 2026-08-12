@@ -1,0 +1,37 @@
+{
+ "cand": "A2_ottpress",
+ "ckpt": "ckpt_delta_p360.pt",
+ "sync_ok": true,
+ "total": {
+  "FIR alone": 11.251,
+  "FIR + net, torch fp32": 17.159,
+  "FIR + net, ONNX fp32": 17.159,
+  "FIR + net, ONNX int8": 16.889
+ },
+ "bands": {
+  "FIR alone": [
+   11.36,
+   5.12,
+   7.76,
+   4.91
+  ],
+  "FIR + net, torch fp32": [
+   17.56,
+   7.3,
+   9.15,
+   5.15
+  ],
+  "FIR + net, ONNX fp32": [
+   17.56,
+   7.3,
+   9.15,
+   5.15
+  ],
+  "FIR + net, ONNX int8": [
+   17.32,
+   6.31,
+   8.42,
+   4.08
+  ]
+ }
+}
