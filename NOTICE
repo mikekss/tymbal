@@ -1,0 +1,70 @@
+Tymbal — a neural synthesizer on a single chip
+Copyright 2026 mikekss (https://github.com/mikekss)
+
+
+WHAT IS COVERED BY WHAT
+-----------------------
+
+Source code, build scripts and tests in this repository are licensed under
+the Apache License, Version 2.0. The full text is in LICENSE.
+
+Documentation under docs/ — the article, the journals and the images in
+docs/img/ — is licensed under the Creative Commons Attribution 4.0
+International licence (CC BY 4.0):
+
+    https://creativecommons.org/licenses/by/4.0/
+
+Attribution for the documentation: "Tymbal, github.com/mikekss/tymbal".
+
+Two sets of files are exceptions. They are covered by NEITHER licence above.
+
+
+THIRD-PARTY MATERIAL
+--------------------
+
+1. fw/target/ — files originating from STMicroelectronics
+
+       main.c
+       STM32N657X0HXQ_AXISRAM2_fsbl.ld
+       N6_m1.ioc
+       FSBL.project.xml
+
+   These come from an STM32CubeMX / STM32CubeIDE project derived from an
+   example in STM32Cube_FW_N6 V1.4.0 (Projects/NUCLEO-N657X0-Q/Examples/SAI).
+   In that package's Software Bill of Materials, "Examples Projects" are
+   licensed by STMicroelectronics under SLA0048, which is not an open-source
+   licence.
+
+       Copyright (c) 2026 STMicroelectronics. All rights reserved.
+
+   They remain under SLA0048 and are NOT placed under Apache-2.0 by this
+   repository. The full terms are reproduced in fw/target/LICENSE.md, which
+   is also the file that the header of fw/target/main.c refers to.
+
+   The application code inside those files — everything between the
+   /* USER CODE BEGIN */ and /* USER CODE END */ markers in main.c — is the
+   author's own work and is additionally available under Apache-2.0.
+
+   fw/target/ is a read-only mirror of the CubeIDE project, kept for
+   reference. It takes no part in any build in this repository: make test,
+   make ck4, make qemu and make qemu-ck4 do not use it.
+
+2. fw/src/mx25um51245g_conf.h
+
+   The macro names in this file follow the configuration template shipped
+   with the STM32Cube BSP component mx25um51245g. The values and all of the
+   commentary are the author's own — in particular the dummy-cycle counts,
+   which differ from the template on purpose and are the subject of one of
+   the findings in docs/chip_findings.md.
+
+       Copyright (c) 2024 STMicroelectronics. All rights reserved.
+       Licensed under BSD-3-Clause:
+       https://opensource.org/licenses/BSD-3-Clause
+
+
+NOT REDISTRIBUTED HERE
+----------------------
+
+ST's datasheets, reference manuals and user manuals are not included in this
+repository. They are cited by document number — DB3171, UM3417 and the
+STM32CubeN6 Getting Started guide — and are available from st.com.

@@ -1,5 +1,12 @@
 # fw/target/ — mirror of the Cube project files (review backlog item 16, closed 8 Aug)
 
+> **The licence here is a different one.** `main.c`,
+> `STM32N657X0HXQ_AXISRAM2_fsbl.ld`, `N6_m1.ioc` and `FSBL.project.xml`
+> originate from an STM32Cube example and remain under SLA0048 from
+> STMicroelectronics. The Apache-2.0 licence at the root of the repository
+> does NOT apply to them — the terms are in `LICENSE.md` next to this file,
+> and `NOTICE` at the root explains the whole picture.
+
 ## Why
 
 The firmware is built by CubeIDE from the project in

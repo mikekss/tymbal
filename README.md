@@ -71,3 +71,14 @@ This repository is translated. The work was done and journalled in Russian, and
 the English here is a translation of that original — including the code
 comments. Numbers, identifiers and file names are untouched. If a phrasing looks
 odd, the measurement behind it is still the measurement.
+
+## Licence
+
+Source code, build scripts and tests are under Apache-2.0; the text is in
+`LICENSE`. The documentation under `docs/` — the article, the journals and the
+images — is under CC BY 4.0.
+
+Two sets of files are covered by neither. The files in `fw/target/` come from
+an STM32Cube example and stay under ST's SLA0048 (`fw/target/LICENSE.md`), and
+`fw/src/mx25um51245g_conf.h` follows the macro names of ST's BSD-3-Clause
+template. `NOTICE` has the details.
