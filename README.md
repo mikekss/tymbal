@@ -10,6 +10,8 @@
 > buckles. The word shares a root with "timbre", by way of `timbal` — a kettle
 > drum — and the Greek `tympanon`, a drum.
 
+[![ci](https://github.com/mikekss/tymbal/actions/workflows/ci.yml/badge.svg)](https://github.com/mikekss/tymbal/actions/workflows/ci.yml)
+
 A polyphonic hybrid real-time synthesizer on a NUCLEO-N657X0-Q (STM32N657):
 a deterministic DDSP skeleton (harmonics plus noise, rendered in a 4×12 kHz
 PQMF domain) on the Cortex-M55 with Helium, and a neural refiner (an FIR bank
